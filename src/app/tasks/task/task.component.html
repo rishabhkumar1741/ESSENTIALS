@@ -1,0 +1,8 @@
+<article>
+  <h2> {{ selectedTasks.title }} </h2>
+  <time> {{ selectedTasks.dueDate }} </time>
+  <p>{{selectedTasks.summary}}</p>
+  <p class="actions">
+    <button (click)="completeTask()">Complete</button>
+  </p>
+</article>
