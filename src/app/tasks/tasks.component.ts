@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {TaskComponent} from "./task/task.component";
 import {NewTaskComponent} from "./new-task/new-task.component";
+import {type NewTaskModels} from "./new-task/new-task.models";
+
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -107,5 +109,16 @@ export class TasksComponent {
     this.addTaskvariable = false;
   }
 
+  onAddTask(taskData:NewTaskModels)
+  {
+    this.tasks.push({
+      id: new Date().getTime().toString(),
+      title:taskData.title,
+      summary:taskData.summary,
+      dueDate: taskData.duedate,
+      userId: this.id
+    })
+    this.addTaskvariable = false;
+  }
 
 }
