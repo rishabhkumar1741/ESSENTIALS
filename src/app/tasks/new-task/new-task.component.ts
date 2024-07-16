@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Output,signal} from '@angular/core';
+import {Component, EventEmitter, Input, Output, signal} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {type NewTaskModels} from "./new-task.models"
+import {TasksService} from "../tasks.service";
 
 
 @Component({
@@ -16,14 +16,25 @@ export class NewTaskComponent {
   summary:string="";
   duedate:string="";
   @Output() cancel = new EventEmitter<void>();
-  @Output() add = new EventEmitter<NewTaskModels>()
+  @Input() selectedUserId:string="";
+
+
+  //Constructer
+  private tasksService:TasksService;
+  constructor(tasksService:TasksService) {
+    this.tasksService = tasksService;
+  }
+
   cancelTaskButton()
   {
     this.cancel.emit();
   }
   onSubmit()
   {
-    this.add.emit({title:this.title, summary:this.summary,duedate:this.duedate});
+    const newTaskData= {title: this.title,summary: this.summary,duedate:this.duedate};
+    this.tasksService.addTask(newTaskData,this.selectedUserId);
+    this.cancel.emit();
+
   }
 
 }
