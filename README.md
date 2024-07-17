@@ -6,5 +6,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-### Project 1 | Commit-(Project 1 Header) | Output 
-<img src="./src/assets/output1.png" alt="img">
+
+
+
+<div align="center" style="font-size:72px;">
+      <span >Final Project output</span>
+<img src="./src/assets/final_Project.png"  />
+</div>
+
+
+
+
